@@ -11,8 +11,6 @@ const uint CPU_RST = 9;
 
 void pin_setup() {
     //For use with 1N4148 diode or 8 channel level shifter. Wire GPIO 0-7 to bits 0-7 on the motherboard.
-    //The order of the bits is actually reversed on the console.
-    //Using the https://xenonlibrary.com/wiki/Post_Codes for wiring reference, connect GPIO 0 to bit 7, GPIO 1 to bit 6, 2 to 5, etc.
     for (uint pin = POST_BASE; pin <= 7; pin++) {
         gpio_init(pin);
         gpio_set_dir(pin, GPIO_IN);
