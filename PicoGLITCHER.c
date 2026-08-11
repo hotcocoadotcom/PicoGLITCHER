@@ -10,7 +10,9 @@ const uint CPU_PLL_BYPASS = 8;
 const uint CPU_RST = 9;
 
 void pin_setup() {
-    //FOR USE WITH 1N4148 DIODE OR 8-CHANNEL LEVEL SHIFTER. WIRE PINS 0-7 TO BITS 0-7 ON 360 MOTHERBOARD.
+    //For use with 1N4148 diode or 8 channel level shifter. Wire GPIO 0-7 to bits 0-7 on the motherboard.
+    //The order of the bits will be reversed relative to what is found on https://xenonlibrary.com/wiki/Post_Codes.
+    //Using the xenonlibrary page for wiring reference, connect GPIO 0 to bit 7, GPIO 1 to bit 6, 2 to 5, etc.
     for (uint pin = POST_BASE; pin <= 7; pin++) {
         gpio_init(pin);
         gpio_set_dir(pin, GPIO_IN);
@@ -40,6 +42,4 @@ int main() {
         
         sleep_us(1);
     }
-
-
 }
