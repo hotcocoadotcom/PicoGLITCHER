@@ -3,7 +3,7 @@ This project is WIP. Track progress below. Currently only writing code for RGH1.
 
 - [ ] Wait for level shifter & other parts to arrive from AliExpress...
 - [ ] Read 8-bit POST bus
-- [ ] Successfully slow down CPU by asserting CPU_PLL_BYPASS
+- [ ] Pray that the CPU slows and console doesnt die
 - [ ] Successfully pulse CPU_RST and glitch the console
 
 OPTIONAL:
