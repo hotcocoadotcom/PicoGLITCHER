@@ -16,13 +16,6 @@ void pin_setup() {
         gpio_set_dir(pin, GPIO_IN);
         gpio_pull_up(pin);
     }
-
-    //FOR USE WITH 22k OHM RESISTOR OR 3-10k OHM RESISTOR DEPENDING ON MOTHERBOARD TYPE.
-    gpio_init(CPU_PLL_BYPASS);
-    gpio_set_dir(CPU_PLL_BYPASS, GPIO_OUT);
-
-    gpio_init(CPU_RST);
-    gpio_set_dir(CPU_RST, GPIO_OUT);
 }
 
 int main() {
@@ -38,6 +31,6 @@ int main() {
             last_code = current_code;
         }
         
-        sleep_us(1);
+        tight_loop_contents();
     }
 }
