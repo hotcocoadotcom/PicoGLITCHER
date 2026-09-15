@@ -46,8 +46,8 @@ pico_set_program_version(PicoGLITCHER "0.1")
 pico_generate_pio_header(PicoGLITCHER ${CMAKE_CURRENT_LIST_DIR}/rgh12_core.pio)
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(PicoGLITCHER 0)
-pico_enable_stdio_usb(PicoGLITCHER 1)
+pico_enable_stdio_uart(PicoGLITCHER 1)
+pico_enable_stdio_usb(PicoGLITCHER 0)
 
 # Add the standard library to the build
 target_link_libraries(PicoGLITCHER
@@ -63,5 +63,12 @@ target_link_libraries(PicoGLITCHER
         hardware_pio
         )
 
+target_compile_definitions(${PicoGLITCHER} PRIVATE
+    PICO_DEFAULT_UART_INSTANCE=uart1
+    PICO_DEFAULT_UART_TX_PIN=10
+    PICO_DEFAULT_UART_RX_PIN=11
+)
+
 pico_add_extra_outputs(PicoGLITCHER)
+
 
